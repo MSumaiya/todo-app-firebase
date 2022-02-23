@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  createUserWithEmailAndPassword,
+  createUserWithEmailAndPassword
 } from "firebase/auth";
 import { auth } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
 import "./welcome.css";
+//import TodoSVG from '../assets/todo-svg.svg'
 
 export default function Welcome() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function Welcome() {
     email: "",
     confirmEmail: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword: ""
   });
 
   const navigate = useNavigate();
@@ -68,6 +69,7 @@ export default function Welcome() {
 
   return (
     <div className="welcome">
+   {/*  <img src={TodoSVG} className="todo-svg" /> */}
       <h1>Todo-List</h1>
       <div className="login-register-container">
         {isRegistering ? (
@@ -79,7 +81,7 @@ export default function Welcome() {
               onChange={(e) =>
                 setRegisterInformation({
                   ...registerInformation,
-                  email: e.target.value,
+                  email: e.target.value
                 })
               }
             />
@@ -90,7 +92,7 @@ export default function Welcome() {
               onChange={(e) =>
                 setRegisterInformation({
                   ...registerInformation,
-                  confirmEmail: e.target.value,
+                  confirmEmail: e.target.value
                 })
               }
             />
@@ -101,7 +103,7 @@ export default function Welcome() {
               onChange={(e) =>
                 setRegisterInformation({
                   ...registerInformation,
-                  password: e.target.value,
+                  password: e.target.value
                 })
               }
             />
@@ -112,31 +114,16 @@ export default function Welcome() {
               onChange={(e) =>
                 setRegisterInformation({
                   ...registerInformation,
-                  confirmPassword: e.target.value,
+                  confirmPassword: e.target.value
                 })
               }
             />
-            <button
-              className="sign-in-register-button"
-              onClick={handleRegister}
-            >
-              Register
-            </button>
-            <button
-              className="create-account-button"
-              onClick={() => setIsRegistering(false)}
-            >
-              Go back
-            </button>
+            <button className="sign-in-register-button" onClick={handleRegister}>Register</button>
+            <button className="create-account-button" onClick={() => setIsRegistering(false)}>Go back</button>
           </>
         ) : (
           <>
-            <input
-              type="email"
-              placeholder="Email"
-              onChange={handleEmailChange}
-              value={email}
-            />
+            <input type="email" placeholder="Email" onChange={handleEmailChange} value={email} />
             <input
               type="password"
               onChange={handlePasswordChange}
