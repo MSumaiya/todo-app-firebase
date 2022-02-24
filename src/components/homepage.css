@@ -25,6 +25,7 @@
     top: 27px;
     right: 570px;
     cursor: pointer;
+    color: lightgray;
   }
   
   .todo {
@@ -45,6 +46,7 @@
   .delete-button {
     cursor: pointer;
     margin-left: 10px;
+    color: lightgray;
   }
   
   .logout-icon {
